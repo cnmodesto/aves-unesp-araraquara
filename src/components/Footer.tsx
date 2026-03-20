@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <p>© {currentYear} Aves da Unesp - Câmpus Araraquara</p>
-      <p>Fotos e desenvolvimento por Carlos Jr.</p>
+      <p>Fotos e desenvolvimento por Celso Modesto Jr.</p>
     </footer>
   );
 }
