@@ -1,0 +1,5 @@
+# Pasta para armazenar as fotos das aves
+# As fotos devem ser nomeadas conforme o campo "particula" de cada ave no arquivo de dados
+# Exemplo: anu-branco.jpg, urutau.jpg, etc.
+# Para espécies com dimorfismo, adicionar fotos adicionais:
+# Exemplo: besourinho-de-bico-vermelho.jpg (macho), besourinho-de-bico-vermelho-femea.jpg (fêmea)
