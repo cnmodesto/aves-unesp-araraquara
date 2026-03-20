@@ -29,10 +29,10 @@ const getConservationColor = (status: string): string => {
 
 export default function BirdModal({ ave, onClose }: BirdModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const basePath = import.meta.env.BASE_URL;
 
   const getImages = () => {
-
     if (ave.fotos && ave.fotos.length > 0) {
       return ave.fotos.map(f => ({
         src: `${basePath}/photos/${f.src}`,
@@ -44,6 +44,11 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
 
   const images = getImages();
   const hasMultipleImages = images.length > 1;
+
+  // Reset image loaded state when changing images
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [currentImageIndex]);
 
   const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -75,7 +80,12 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = `${basePath}/not_available.svg`;
+    e.currentTarget.src = '/not_available.svg';
+    setImageLoaded(true);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
   };
 
   const conservationClass = getConservationColor(ave.estadoConservacaoIucn);
@@ -97,11 +107,19 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
           
           <div className="modal-image-wrapper">
             <div className="image-with-caption">
+              {/* Skeleton loader */}
+              {!imageLoaded && (
+                <div className="modal-skeleton-loader">
+                  <div className="skeleton-shimmer"></div>
+                </div>
+              )}
               <img 
                 src={images[currentImageIndex].src} 
                 alt={ave.nomeComumBrasileiro}
                 onError={handleImageError}
+                onLoad={handleImageLoad}
                 draggable="false"
+                className={imageLoaded ? 'loaded' : 'loading'}
               />
               {images[currentImageIndex].legenda && (
                 <span className="image-caption">
