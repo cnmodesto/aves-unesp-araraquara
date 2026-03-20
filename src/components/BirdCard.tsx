@@ -8,12 +8,13 @@ interface BirdCardProps {
 
 export default function BirdCard({ ave, onClick }: BirdCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  const getImageSrc = () => {
+  const basePath = import.meta.env.BASE_URL;
+  
+  const getImageSrc = () => {    
     if (ave.fotos && ave.fotos.length > 0) {
-      return `/photos/${ave.fotos[0].src}`;
+      return `${basePath}photos/${ave.fotos[0].src}`;
     }
-    return '/not_available.svg';
+    return `${basePath}not_available.svg`;
   };
 
   const handleImageLoad = () => {
@@ -21,7 +22,7 @@ export default function BirdCard({ ave, onClick }: BirdCardProps) {
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = '/not_available.svg';
+    e.currentTarget.src = `${basePath}not_available.svg`;
     setImageLoaded(true);
   };
 

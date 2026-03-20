@@ -29,15 +29,17 @@ const getConservationColor = (status: string): string => {
 
 export default function BirdModal({ ave, onClose }: BirdModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const basePath = import.meta.env.BASE_URL;
 
   const getImages = () => {
+
     if (ave.fotos && ave.fotos.length > 0) {
       return ave.fotos.map(f => ({
-        src: `/photos/${f.src}`,
+        src: `${basePath}/photos/${f.src}`,
         legenda: f.legenda
       }));
     }
-    return [{ src: '/not_available.svg', legenda: '' }];
+    return [{ src: `${basePath}/not_available.svg`, legenda: '' }];
   };
 
   const images = getImages();
@@ -73,7 +75,7 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = '/not_available.svg';
+    e.currentTarget.src = `${basePath}/not_available.svg`;
   };
 
   const conservationClass = getConservationColor(ave.estadoConservacaoIucn);

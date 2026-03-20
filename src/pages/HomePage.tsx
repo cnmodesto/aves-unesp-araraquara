@@ -19,6 +19,7 @@ export default function HomePage() {
   });
   const [sortOption, setSortOption] = useState<SortOption>('nome-az');
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const basePath = import.meta.env.BASE_URL;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,7 +137,7 @@ export default function HomePage() {
         <div className="header-content">
           <div className="logo">
             <a href="#" onClick={(e) => { e.preventDefault(); handleTitleClick(); }}>
-              <img src="/logo.png" alt="Logo Unesp" />
+              <img src={`${basePath}logo.png`} alt="Logo Unesp" />
             </a>
           </div>
           <div className="titles">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function InfoPage() {
   const [isHeaderShrunk, setIsHeaderShrunk] = useState(false);
+  const basePath = import.meta.env.BASE_URL;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +24,7 @@ export default function InfoPage() {
         <div className="header-content">
           <div className="logo">
             <Link to="/">
-              <img src="/logo.png" alt="Logo Unesp" />
+              <img src={`${basePath}logo.png`} alt="Logo Unesp" />
             </Link>
           </div>
           <div className="titles">
