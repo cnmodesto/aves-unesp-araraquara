@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 export default function InfoPage() {
   const [isHeaderShrunk, setIsHeaderShrunk] = useState(false);
@@ -185,10 +186,7 @@ export default function InfoPage() {
         </div>
       </main>
 
-      <footer>
-        <p>© 2025 Aves da Unesp - Câmpus Araraquara</p>
-        <p>Fotos e desenvolvimento por Celso Modesto Jr.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
