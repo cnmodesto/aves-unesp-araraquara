@@ -15,7 +15,7 @@ export interface FilterState {
   endemica: string;
 }
 
-export type SortOption = 'nome-az' | 'nome-za' | 'cientifico-az' | 'cientifico-za' | 'familia' | 'ordem';
+export type SortOption = 'taxonomia' | 'nome-az' | 'nome-za' | 'cientifico-az' | 'cientifico-za' | 'familia' | 'ordem';
 
 // Extrair famílias únicas dos dados
 const familiasUnicas = [...new Set(aves.map(ave => ave.familia))].sort();
@@ -28,7 +28,7 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
     dimorfismo: '',
     endemica: ''
   });
-  const [sort, setSort] = useState<SortOption>('nome-az');
+  const [sort, setSort] = useState<SortOption>('taxonomia');
 
   const handleFilterChange = (key: keyof FilterState, value: string) => {
     const newFilters = { ...filters, [key]: value };
@@ -150,12 +150,13 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
                 onChange={(e) => handleSortChange(e.target.value as SortOption)}
                 className="sort-select"
               >
+                <option value="taxonomia">Taxonomia (CBRO/IOC)</option>
                 <option value="nome-az">Nome popular (A-Z)</option>
                 <option value="nome-za">Nome popular (Z-A)</option>
                 <option value="cientifico-az">Nome científico (A-Z)</option>
                 <option value="cientifico-za">Nome científico (Z-A)</option>
                 <option value="familia">Família</option>
-                <option value="ordem">Ordem taxonômica</option>
+                <option value="ordem">Ordem</option>
               </select>
             </div>
           </div>

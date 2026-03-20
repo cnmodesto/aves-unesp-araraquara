@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { aves, Ave } from '../data/aves';
+import { compararTaxonomia } from '../data/taxonomia';
 import BirdCard from '../components/BirdCard';
 import BirdModal from '../components/BirdModal';
 import ScrollToTop from '../components/ScrollToTop';
@@ -17,7 +18,7 @@ export default function HomePage() {
     dimorfismo: '',
     endemica: ''
   });
-  const [sortOption, setSortOption] = useState<SortOption>('nome-az');
+  const [sortOption, setSortOption] = useState<SortOption>('taxonomia');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const basePath = import.meta.env.BASE_URL;
 
@@ -39,6 +40,8 @@ export default function HomePage() {
     const sorted = [...avesToSort];
     
     switch (option) {
+      case 'taxonomia':
+        return sorted.sort((a, b) => compararTaxonomia(a, b));
       case 'nome-az':
         return sorted.sort((a, b) => 
           a.nomeComumBrasileiro.localeCompare(b.nomeComumBrasileiro, 'pt-BR')
