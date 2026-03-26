@@ -9,6 +9,7 @@ export default function BirdDetailPage() {
   const [ave, setAve] = useState<Ave | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const basePath = import.meta.env.BASE_URL;
 
   useEffect(() => {
     const foundAve = aves.find(a => a.particula === particula);
@@ -36,7 +37,7 @@ export default function BirdDetailPage() {
   const hasPhotos = ave.fotos && ave.fotos.length > 0;
   const fotos = hasPhotos ? ave.fotos : [{ src: '', legenda: '' }];
   const currentFoto = fotos[currentImageIndex];
-  const imageSrc = hasPhotos ? `/photos/${currentFoto.src}` : '/not_available.svg';
+  const imageSrc = hasPhotos ? `${basePath}/photos/${currentFoto.src}` : `${basePath}/not_available.svg`;
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + fotos.length) % fotos.length);
