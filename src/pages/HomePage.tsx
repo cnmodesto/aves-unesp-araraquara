@@ -195,7 +195,7 @@ export default function HomePage() {
               <BirdCard
                 key={ave.id}
                 ave={ave}
-                onClick={() => setSelectedAve(ave)}
+                onOpenModal={() => setSelectedAve(ave)}
               />
             ))
           ) : (

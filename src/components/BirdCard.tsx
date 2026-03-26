@@ -1,21 +1,33 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Ave } from '../data/aves';
 
 interface BirdCardProps {
   ave: Ave;
-  onClick: () => void;
+  onOpenModal: () => void;
 }
 
-export default function BirdCard({ ave, onClick }: BirdCardProps) {
+export default function BirdCard({ ave, onOpenModal }: BirdCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const navigate = useNavigate();
   const basePath = import.meta.env.BASE_URL;
-  
+
+  const isMobile = () => window.innerWidth < 768;
+
+  const handleClick = () => {
+    if (isMobile()) {
+      navigate(`/ave/${ave.particula}`);
+    } else {
+      onOpenModal();
+    }
+  };
+
   const getImageSrc = () => {    
     if (ave.fotos && ave.fotos.length > 0) {
       return `${basePath}photos/${ave.fotos[0].src}`;
     }
     return `${basePath}not_available.svg`;
-  };
+  };  
 
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -33,7 +45,7 @@ export default function BirdCard({ ave, onClick }: BirdCardProps) {
   const fotoCount = ave.fotos?.length || 0;
 
   return (
-    <div className="card" onClick={onClick}>
+    <div className="card" onClick={handleClick}>
       <div className="card-image-container">
         {/* Skeleton loader */}
         {!imageLoaded && (

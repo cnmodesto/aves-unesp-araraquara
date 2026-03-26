@@ -21,6 +21,28 @@ body {
   background-size: cover;
   background-position: center;
   touch-action: manipulation; /* evita seleção acidental em mobile */
+  /* Safe area para dispositivos com notch */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* ===== TRANSIÇÕES DE PÁGINA (mobile) ===== */
+@media (max-width: 767px) {
+  .page-transition {
+    animation: slideIn 0.25s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
 /* ===== PROTEÇÃO DE CONTEÚDO ===== */
@@ -65,6 +87,7 @@ header {
   background: #0E5374;
   color: #FFFFFF;
   padding: 0.2rem 0;
+  padding-top: calc(0.2rem + env(safe-area-inset-top, 0px));
   text-align: center;
   position: fixed;
   top: 0;
@@ -649,6 +672,7 @@ footer {
   color: #FFFFFF;
   text-align: center;
   padding: 1rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   margin-top: 1.5rem;
   font-size: 18px;
 }
@@ -1293,6 +1317,300 @@ footer p {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* ===== BIRD DETAIL PAGE (Mobile) ===== */
+.detail-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.detail-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.detail-loading .skeleton-loader {
+  width: 100%;
+  height: 300px;
+}
+
+.detail-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0E5374;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  padding-top: calc(0.8rem + env(safe-area-inset-top, 0px));
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.detail-header .back-button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.detail-header .back-button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.detail-header-title {
+  flex: 1;
+  overflow: hidden;
+}
+
+.detail-header-title h1 {
+  font-family: "Staatliches", sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detail-image-container {
+  position: relative;
+  width: 100%;
+  margin-top: calc(60px + env(safe-area-inset-top, 0px));
+  background: #f0f0f0;
+}
+
+.detail-image-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  max-height: 50vh;
+  overflow: hidden;
+}
+
+.detail-image-wrapper .skeleton-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+}
+
+.detail-image-wrapper img {
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  max-height: 50vh;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.detail-image-wrapper img.loading {
+  opacity: 0;
+}
+
+.detail-image-wrapper img.loaded {
+  opacity: 1;
+}
+
+.detail-image-caption {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.detail-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.detail-arrow:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.detail-arrow-left {
+  left: 10px;
+}
+
+.detail-arrow-right {
+  right: 10px;
+}
+
+.detail-image-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.detail-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.detail-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+.detail-content {
+  flex: 1;
+  padding: 1.2rem;
+  padding-bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px));
+}
+
+.detail-title-section {
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #eee;
+}
+
+.detail-title-section h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+  margin: 0 0 0.3rem 0;
+}
+
+.detail-title-section h2 {
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: #666;
+  margin: 0;
+}
+
+.detail-section {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-section-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0E5374;
+  margin: 0 0 0.8rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.detail-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.detail-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.detail-list {
+  margin: 0.3rem 0 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.detail-list li {
+  margin-bottom: 0.2rem;
+}
+
+.detail-conservation-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.detail-conservation-badge.conservation-lc {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.detail-conservation-badge.conservation-nt {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.detail-conservation-badge.conservation-vu {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+.detail-conservation-badge.conservation-en {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.detail-conservation-badge.conservation-cr {
+  background-color: #721c24;
+  color: #fff;
+}
+
+.detail-wikiaves-btn {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.9rem;
+  font-size: 1rem;
 }
 
 /* ===== MEDIA QUERIES ===== */
