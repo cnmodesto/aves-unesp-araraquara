@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Aves da Unesp - Câmpus Araraquara</title>
+    <script>
+      // Solução para SPA no GitHub Pages
+      // Captura a rota atual e redireciona para index.html com a rota como parâmetro
+      // O index.html então restaura a rota original usando history.replaceState
+      (function() {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        
+        // Codifica a rota completa
+        var redirectUrl = '/?p=' + encodeURIComponent(path + search + hash);
+        
+        // Redireciona para a página principal
+        window.location.replace(redirectUrl);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando...</p>
+  </body>
+</html>

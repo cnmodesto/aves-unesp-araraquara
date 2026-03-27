@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { aves, Ave } from '../data/aves';
 import ScrollToTop from '../components/ScrollToTop';
@@ -71,15 +71,21 @@ export default function BirdDetailPage() {
   };
 
   return (
-    <div className="detail-page">
-      {/* Header */}
+    <div className="detail-page page-transition">
+      {/* Header estilo shrink */}
       <header className="detail-header">
         <button className="back-button" onClick={() => navigate(-1)}>
           ← Voltar
         </button>
-        <div className="detail-header-title">
-          <h1>{ave.nomeComumBrasileiro}</h1>
-        </div>
+        <Link to="/" className="detail-header-content">
+          <div className="detail-header-logo">
+            <img src={`${basePath}logo.png`} alt="Logo Unesp" />
+          </div>
+          <div className="detail-header-titles">
+            <h1>Aves da Unesp</h1>
+            <h2>Câmpus Araraquara</h2>
+          </div>
+        </Link>
       </header>
 
       {/* Imagem */}
