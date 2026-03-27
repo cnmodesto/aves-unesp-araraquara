@@ -26,8 +26,9 @@
         if (search && search.indexOf('?p=') === 0) {
           // Extrai a rota original
           var path = decodeURIComponent(search.slice(3));
-          // Restaura a URL original sem recarregar a página
-          window.history.replaceState(null, '', path);
+          // Mantém o basePath na URL restaurada
+          var repo = '/guia-aves-unesp-aqa-vite';
+          window.history.replaceState(null, '', repo + path);
         }
       })();
     </script>    
