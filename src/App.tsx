@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import HomePage from './pages/HomePage';
 import InfoPage from './pages/InfoPage';
@@ -23,6 +23,7 @@ function AppRoutes() {
       <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
       <Route path="/info" element={<PageWrapper><InfoPage /></PageWrapper>} />
       <Route path="/ave/:particula" element={<PageWrapper><BirdDetailPage /></PageWrapper>} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
