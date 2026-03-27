@@ -9,13 +9,20 @@
       // Captura a rota atual e redireciona para index.html com a rota como parâmetro
       // O index.html então restaura a rota original usando history.replaceState
       (function() {
-        // Detecta o basePath do repositório
-        var repo = '/guia-aves-unesp-aqa-vite';
-        var path = window.location.pathname;
+        // Detecta o basePath automaticamente baseado no pathname
+        // Funciona tanto em /aves-unesp/ quanto em /
+        var segments = window.location.pathname.split('/').filter(Boolean);
+        var repo = '';
 
-        // Remove o basePath para obter a rota relativa
-        if (path.indexOf(repo) === 0) {
-          path = path.slice(repo.length) || '/';
+        // Se estiver no GitHub Pages (usuario.github.io/repo/)
+        // o primeiro segmento é o nome do repo
+        if (window.location.hostname.includes('github.io') && segments.length > 0) {
+        repo = '/' + segments[0];
+        }
+        
+        var path = window.location.pathname;
+        if (repo && path.indexOf(repo) === 0) {
+        path = path.slice(repo.length) || '/';
         }
         
         var search = window.location.search;
@@ -23,7 +30,6 @@
         
         // Redireciona para a página principal com a rota codificada
         var redirectUrl = repo + '/?p=' + encodeURIComponent(path + search + hash);
-        
         window.location.replace(redirectUrl);
       })();
     </script>
