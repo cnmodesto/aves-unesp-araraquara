@@ -32,7 +32,12 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    searchInputRef.current?.focus();
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+      || window.matchMedia('(max-width: 768px)').matches;
+
+    if (!isMobile) {
+      searchInputRef.current?.focus();
+    }
   }, []);
 
   // Função de ordenação
