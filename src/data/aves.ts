@@ -1094,6 +1094,10 @@ export const aves: Ave[] = [
     fotos: [{
       src: "picapauzinho-escamoso.jpg",
       legenda: "Macho"
+    },
+    {
+      src: "picapauzinho-escamoso-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
@@ -1149,6 +1153,10 @@ export const aves: Ave[] = [
     fotos: [{
       src: "pica-pau-pequeno.jpg",
       legenda: "Macho"
+    },
+    {
+      src: "pica-pau-pequeno-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
@@ -1516,6 +1524,10 @@ export const aves: Ave[] = [
     fotos: [{
       src: "choca-barrada.jpg",
       legenda: "Macho"
+    },
+    {
+      src: "choca-barrada-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
@@ -2506,6 +2518,10 @@ export const aves: Ave[] = [
     fotos: [{
       src: "balanca-rabo-de-mascara.jpg",
       legenda: "Macho"
+    },
+    {
+      src: "balanca-rabo-de-mascara-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
@@ -2881,6 +2897,10 @@ export const aves: Ave[] = [
     fotos: [{
       src: "saira-de-chapeu-preto.jpg",
       legenda: "Macho"
+    },
+    {
+      src: "saira-de-chapeu-preto-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
