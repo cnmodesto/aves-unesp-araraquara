@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +14,7 @@ body {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #e8f4f8 0%, #d4e8e0 50%, #c8dcd8 100%);
@@ -234,13 +235,14 @@ header.shrink .titles h2 .info-link {
 
 .search-wrapper input {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.5rem;
   padding-left: 50px;
   padding-right: 35px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  font-family: Poppins, sans-serif;
 }
 
 .search-wrapper input:focus {
@@ -380,7 +382,6 @@ main.shrink-main {
   align-items: center;
   justify-content: space-between;
   gap: 0.8rem;
-  margin-bottom: 0.3rem;
 }
 
 .list-item-title {
@@ -404,14 +405,13 @@ main.shrink-main {
 .list-item-english {
   font-size: 0.8rem;
   color: #777;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.2rem 0;
 }
 
 .list-item-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .list-item-tag {
@@ -526,11 +526,13 @@ main.shrink-main {
   background: #0E5374;
   color: white;
   border: none;
-  padding: 0.6rem 1rem;
+  padding: 0.55rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  font-family: Poppins, sans-serif;
   transition: background 0.2s ease;
+  text-transform: uppercase;
 }
 
 .filters-toggle:hover {
@@ -589,12 +591,13 @@ main.shrink-main {
 }
 
 .results-count {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #555;
   background: rgba(255, 255, 255, 0.9);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
 }
 
 .filters-content {
@@ -641,10 +644,11 @@ main.shrink-main {
   padding: 0.6rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   background: white;
   cursor: pointer;
   transition: border-color 0.2s ease;
+  font-family: Poppins, sans-serif;
 }
 
 .filter-group select:focus,
@@ -866,7 +870,7 @@ main.shrink-main {
 
 .card-content {
   flex: 1;
-  padding: 0.8rem;
+  padding: 0.65rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -888,7 +892,6 @@ main.shrink-main {
   font-size: 12px;
   font-weight: normal;
   margin: 0;
-  margin-top: 0.1rem;
   color: #555;
   white-space: nowrap;
   overflow: hidden;
@@ -897,8 +900,8 @@ main.shrink-main {
 
 /* ===== BOTÃO PRIMÁRIO ===== */
 .primary-btn {
-  padding: 0.6rem 0.6rem;
-  font-size: 16px;
+  padding: 0.55rem 0.55rem;
+  font-size: 1.1rem;
   border: none;
   border-radius: 4px;
   background: linear-gradient(to right, #009FE0, #02A4E3);
@@ -909,6 +912,8 @@ main.shrink-main {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  margin-top: 0.6rem;
+  font-family: Poppins, sans-serif;
 }
 
 .primary-btn:hover {
@@ -974,7 +979,7 @@ footer p {
 
 .modal-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 10px;
   max-width: 535px;
   width: 100%;
   max-height: 90%;
@@ -1349,7 +1354,8 @@ footer p {
 
 /* ===== MODAL COMPACTO ===== */
 .modal-compact {
-  max-width: 600px;
+  /* max-width: 600px; */
+  max-width: 535px;
 }
 
 .modal-body.compact {
@@ -1379,7 +1385,7 @@ footer p {
 .modal-column {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .info-group {
@@ -1503,6 +1509,7 @@ footer p {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .container-info h2 {

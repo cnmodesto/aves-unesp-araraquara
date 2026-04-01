@@ -69,16 +69,16 @@ export default function InfoPage() {
           <h3>Informações Apresentadas</h3>
           <p>Cada espécie é apresentada com informações essenciais:</p>
           <ul>
-            <li><strong>Nome científico e popular</strong> — Identificação taxonômica e nome comum em português</li>
-            <li><strong>Ordem e família</strong> — Classificação taxonômica</li>
-            <li><strong>Autor e ano da descrição</strong> — Referência histórica da descrição da espécie</li>
-            <li><strong>Nome em inglês</strong> — Nome comum internacional</li>
-            <li><strong>Período de atividade</strong> — Diurno, noturno ou crepuscular</li>
-            <li><strong>Dimorfismo sexual</strong> — Diferenças visíveis entre machos e fêmeas</li>
-            <li><strong>Estado de conservação (IUCN)</strong> — Classificação de risco de extinção</li>
-            <li><strong>Endemismo</strong> — Se a espécie é exclusiva do Brasil</li>
-            <li><strong>Habitats</strong> — Ambientes onde a espécie pode ser encontrada</li>
-            <li><strong>Dieta</strong> — Principais itens alimentares</li>
+            <li><strong>Nome científico e popular</strong>: Identificação taxonômica e nome comum em português</li>
+            <li><strong>Ordem e família</strong>: Classificação taxonômica</li>
+            <li><strong>Autor e ano da descrição</strong>: Referência histórica da descrição da espécie</li>
+            <li><strong>Nome em inglês</strong>: Nome comum internacional</li>
+            <li><strong>Período de atividade</strong>: Diurno, noturno ou crepuscular</li>
+            <li><strong>Dimorfismo sexual</strong>: Diferenças visíveis entre machos e fêmeas</li>
+            <li><strong>Estado de conservação (IUCN)</strong>: Classificação de risco de extinção</li>
+            <li><strong>Endemismo</strong>: Se a espécie é exclusiva do Brasil</li>
+            <li><strong>Habitats</strong>: Ambientes onde a espécie pode ser encontrada</li>
+            <li><strong>Dieta</strong>: Principais itens alimentares</li>
           </ul>
 
           <h3>Hotspots do eBird</h3>
@@ -134,22 +134,16 @@ export default function InfoPage() {
 
           <ul>
             <li>COMITÊ BRASILEIRO DE REGISTROS ORNITOLÓGICOS. <em>Lista de aves do Brasil: 13ª edição, 2021</em>.
-              Disponível
-              em:
-              <a href="https://www.cbro.org.br/listas/" target="_blank"
+              Disponível em: <a href="https://www.cbro.org.br/listas/" target="_blank"
                 rel="noopener noreferrer">https://www.cbro.org.br/listas/</a>.
-              Acesso
-              em: 15 jul. 2025.
+              Acesso em: 15 jul. 2025.
             </li>
             <li>CORNELL LAB OF ORNITHOLOGY. <em>eBird</em>. Disponível em: <a href="https://ebird.org/"
               target="_blank" rel="noopener noreferrer">https://ebird.org/</a>. Acesso em: continuamente.</li>
             <li>GWYNNE, John A.; RIDGELY, Robert S.; TUDOR, Guy; ARGEL, Martha. <em>Aves do Brasil: Pantanal e
-              Cerrado</em>.
-              São
-              Paulo: Horizonte, 2010.</li>
+              Cerrado</em>. São Paulo: Horizonte, 2010.</li>
             <li>MELLO, Daniel; MELLO, Gabriel; MALLET-RODRIGUES, Francisco; LIMA, Luciano. <em>Aves do sudeste do
-              Brasil:
-              guia de identificação</em>. 1. ed. Rio de Janeiro: Gabriel Jorge de Menezes Mello, 2020.</li>
+              Brasil: guia de identificação</em>. 1. ed. Rio de Janeiro: Gabriel Jorge de Menezes Mello, 2020.</li>
             <li>RIDGELY, Robert S.; GWYNNE, John A.; TUDOR, Guy; ARGEL, Martha. <em>Aves do Brasil: Mata Atlântica
               do
               sudeste</em>. São Paulo: Horizonte, 2015.</li>

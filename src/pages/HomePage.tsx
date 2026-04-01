@@ -172,7 +172,7 @@ export default function HomePage() {
                 ref={searchInputRef}
                 type="text"
                 id="search"
-                placeholder="Busque por nome, família ou ordem..."
+                placeholder="BUSQUE POR NOME, FAMÍLIA OU ORDEM..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
