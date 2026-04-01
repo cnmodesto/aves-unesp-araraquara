@@ -500,7 +500,7 @@ main.shrink-main {
 /* ===== FILTROS ===== */
 .filters-container {
   max-width: 1200px;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1.2rem;
   padding: 0 2rem;
 }
 
@@ -1707,7 +1707,7 @@ footer p {
   position: relative;
   width: 100%;
   min-height: 280px;
-  max-height: 50vh;
+  max-height: 35vh;
   overflow: hidden;
 }
 
@@ -2008,7 +2008,7 @@ footer p {
   }
 
   main {
-    margin-top: 220px;
+    margin-top: 210px;
   }
 
   .headline {
@@ -2123,7 +2123,7 @@ footer p {
   }
 
   main {
-    margin-top: 210px;
+    margin-top: 195px;
   }
 
   .main-info {
