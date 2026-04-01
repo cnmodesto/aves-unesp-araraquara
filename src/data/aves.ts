@@ -2848,6 +2848,9 @@ export const aves: Ave[] = [
     fotos: [{
       src: "chupim.jpg",
       legenda: "Macho"
+    },{
+      src: "chupim-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
@@ -3034,6 +3037,9 @@ export const aves: Ave[] = [
     fotos: [{
       src: "tiziu.jpg",
       legenda: "Macho"
+    },{
+      src: "tiziu-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
