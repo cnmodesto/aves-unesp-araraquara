@@ -4,8 +4,10 @@ import { aves } from '../data/aves';
 interface FiltersProps {
   onFilterChange: (filters: FilterState) => void;
   onSortChange: (sort: SortOption) => void;
+  onViewModeChange: (mode: ViewMode) => void;
   totalResults: number;
   totalSpecies: number;
+  viewMode: ViewMode;
 }
 
 export interface FilterState {
@@ -17,10 +19,12 @@ export interface FilterState {
 
 export type SortOption = 'taxonomia' | 'nome-az' | 'nome-za' | 'cientifico-az' | 'cientifico-za' | 'familia' | 'ordem';
 
+export type ViewMode = 'grid' | 'list';
+
 // Extrair famílias únicas dos dados
 const familiasUnicas = [...new Set(aves.map(ave => ave.familia))].sort();
 
-export default function Filters({ onFilterChange, onSortChange, totalResults, totalSpecies }: FiltersProps) {
+export default function Filters({ onFilterChange, onSortChange, onViewModeChange, totalResults, totalSpecies, viewMode }: FiltersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [filters, setFilters] = useState<FilterState>({
     familia: '',
@@ -57,22 +61,52 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
   return (
     <div className="filters-container">
       <div className="filters-header">
-        <button 
-          className="filters-toggle"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <span className="filter-icon">⚙️</span>
-          Filtros e Ordenação
-          <span className={`arrow-icon ${isExpanded ? 'expanded' : ''}`}>▼</span>
-        </button>
-        
+        <div className="filters-header-left">
+          <button
+            className="filters-toggle"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <span className="filter-icon">⚙️</span>
+            Filtros e Ordenação
+            <span className={`arrow-icon ${isExpanded ? 'expanded' : ''}`}>▼</span>
+          </button>
+
+          <div className="view-mode-toggle">
+            <button
+              className={`view-mode-btn ${viewMode === 'grid' ? 'active' : ''}`}
+              onClick={() => onViewModeChange('grid')}
+              title="Visualização em grade"
+              aria-label="Visualização em grade"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            </button>
+            <button
+              className={`view-mode-btn ${viewMode === 'list' ? 'active' : ''}`}
+              onClick={() => onViewModeChange('list')}
+              title="Visualização em lista"
+              aria-label="Visualização em lista"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="4" width="18" height="4" rx="1" />
+                <rect x="3" y="10" width="18" height="4" rx="1" />
+                <rect x="3" y="16" width="18" height="4" rx="1" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
         <div className="results-count">
           {totalResults === totalSpecies ? (
-            <span>{totalSpecies} espécies</span>
+            <span>📊 <strong>{totalSpecies}</strong> espécies</span>
           ) : (
-            <span>{totalResults} de {totalSpecies} espécies</span>
+            <span>📊 Exibindo <strong>{totalResults}</strong> de <strong>{totalSpecies}</strong> espécies</span>
           )}
-        </div>
+        </div>        
       </div>
 
       {isExpanded && (
@@ -82,7 +116,7 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
             <div className="filters-grid">
               <div className="filter-group">
                 <label htmlFor="filter-familia">Família</label>
-                <select 
+                <select
                   id="filter-familia"
                   value={filters.familia}
                   onChange={(e) => handleFilterChange('familia', e.target.value)}
@@ -96,7 +130,7 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
 
               <div className="filter-group">
                 <label htmlFor="filter-periodo">Período de Atividade</label>
-                <select 
+                <select
                   id="filter-periodo"
                   value={filters.periodo}
                   onChange={(e) => handleFilterChange('periodo', e.target.value)}
@@ -110,7 +144,7 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
 
               <div className="filter-group">
                 <label htmlFor="filter-dimorfismo">Dimorfismo Sexual</label>
-                <select 
+                <select
                   id="filter-dimorfismo"
                   value={filters.dimorfismo}
                   onChange={(e) => handleFilterChange('dimorfismo', e.target.value)}
@@ -123,7 +157,7 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
 
               <div className="filter-group">
                 <label htmlFor="filter-endemica">Endemismo</label>
-                <select 
+                <select
                   id="filter-endemica"
                   value={filters.endemica}
                   onChange={(e) => handleFilterChange('endemica', e.target.value)}
@@ -145,18 +179,18 @@ export default function Filters({ onFilterChange, onSortChange, totalResults, to
           <div className="sort-section">
             <h4>Ordenar por:</h4>
             <div className="sort-options">
-              <select 
+              <select
                 value={sort}
                 onChange={(e) => handleSortChange(e.target.value as SortOption)}
                 className="sort-select"
               >
-                <option value="taxonomia">Taxonomia (CBRO/IOC)</option>
-                <option value="nome-az">Nome popular (A-Z)</option>
-                <option value="nome-za">Nome popular (Z-A)</option>
-                <option value="cientifico-az">Nome científico (A-Z)</option>
-                <option value="cientifico-za">Nome científico (Z-A)</option>
-                <option value="familia">Família</option>
-                <option value="ordem">Ordem</option>
+                <option value="taxonomia">📚 Taxonomia (CBRO/IOC)</option>
+                <option value="nome-az">🔤 Nome popular (A-Z)</option>
+                <option value="nome-za">🔤 Nome popular (Z-A)</option>
+                <option value="cientifico-az">🔬 Nome científico (A-Z)</option>
+                <option value="cientifico-za">🔬 Nome científico (Z-A)</option>
+                <option value="familia">📁 Família</option>
+                <option value="ordem">📋 Ordem</option>
               </select>
             </div>
           </div>

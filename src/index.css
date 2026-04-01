@@ -63,7 +63,8 @@ img {
 .card,
 .modal-card,
 .card-content,
-.modal-image-container {
+.modal-image-container,
+.list-item {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -298,6 +299,196 @@ main.shrink-main {
   margin: 1rem auto 1.2rem;
 }
 
+/* ===== LIST VIEW ===== */
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 2rem;
+  margin: 1rem auto 1.2rem;
+  max-width: 1200px;
+}
+
+/* ===== LIST ITEM ===== */
+.list-item {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.list-item-image {
+  position: relative;
+  width: 150px;
+  min-width: 150px;
+  height: 112px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.list-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.list-item-image img.loading {
+  opacity: 0;
+}
+
+.list-item-image img.loaded {
+  opacity: 1;
+}
+
+.list-item-badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.list-item-content {
+  flex: 1;
+  padding: 0.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.list-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.list-item-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-scientific {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+  margin: 0;
+}
+
+.list-item-english {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0 0 0.5rem 0;
+}
+
+.list-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.list-item-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #f0f4f8;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  color: #4a5568;
+}
+
+.tag-icon {
+  font-size: 0.8rem;
+}
+
+.list-item-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.list-item-detail {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.list-item-actions {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+.list-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #0E5374, #087fad);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.list-item-btn:hover {
+  background: linear-gradient(135deg, #087fad, #0E5374);
+  transform: scale(1.02);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.list-item-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.conservation-badge-small {
+  padding: 0.27rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
 /* ===== FILTROS ===== */
 .filters-container {
   max-width: 1200px;
@@ -311,6 +502,13 @@ main.shrink-main {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.filters-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .filters-toggle {
@@ -342,6 +540,44 @@ main.shrink-main {
 
 .arrow-icon.expanded {
   transform: rotate(180deg);
+}
+
+/* ===== VIEW MODE TOGGLE ===== */
+.view-mode-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.view-mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn:hover {
+  background: rgba(14, 83, 116, 0.1);
+  color: #0E5374;
+}
+
+.view-mode-btn.active {
+  background: #0E5374;
+  color: white;
+}
+
+.view-mode-btn svg {
+  width: 18px;
+  height: 18px;
 }
 
 .results-count {
@@ -1687,6 +1923,17 @@ footer p {
   .info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* List view em tablets */
+  .list-item {
+    flex-direction: row;
+  }
+
+  .list-item-image {
+    width: 150px;
+    min-width: 150px;
+    height: 120px;
+  }
 }
 
 /* Tablets (max-width) */
@@ -1764,6 +2011,10 @@ footer p {
     align-items: stretch;
   }
 
+  .filters-header-left {
+    justify-content: space-between;
+  }
+
   .results-count {
     text-align: center;
   }
@@ -1836,6 +2087,10 @@ footer p {
   }
   
   .grid {
+    padding: 0 1rem;
+  }
+
+  .list-view {
     padding: 0 1rem;
   }
 
@@ -1963,8 +2218,17 @@ footer p {
   }
 
   .filters-toggle {
-    width: 100%;
+    flex: 1;
     justify-content: center;
+  }
+
+  .filters-header-left {
+    width: 100%;
+    gap: 0.5rem;
+  }  
+
+  .view-mode-toggle {
+    flex-shrink: 0;
   }
 
   .filters-grid {
@@ -2068,6 +2332,42 @@ footer p {
     margin-top: 0.6rem;
     padding: 0.4rem;
     font-size: 0.8rem;
+  }
+
+  /* List item em mobile - layout vertical */
+  .list-item {
+    flex-direction: row;
+  }
+
+  .list-item-image {
+    width: 30%;
+    min-width: 30%;
+    height: 100px;
+  }
+
+  .list-item-content {
+    padding: 0.8rem 1rem;
+  }
+
+  .list-item-header {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .list-item-actions {
+    padding: 0 1rem 1rem 1rem;
+    width: 100%;
+  }
+
+  .list-item-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .list-item-details {
+    flex-direction: column;
+    gap: 0.3rem;
   }
 }
 

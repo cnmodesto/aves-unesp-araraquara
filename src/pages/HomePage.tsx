@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { aves, Ave } from '../data/aves';
 import { compararTaxonomia } from '../data/taxonomia';
 import BirdCard from '../components/BirdCard';
+import BirdListItem from '../components/BirdListItem';
 import BirdModal from '../components/BirdModal';
 import ScrollToTop from '../components/ScrollToTop';
 import Footer from '../components/Footer';
-import Filters, { FilterState, SortOption } from '../components/Filters';
+import Filters, { FilterState, SortOption, ViewMode } from '../components/Filters';
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,6 +20,7 @@ export default function HomePage() {
     endemica: ''
   });
   const [sortOption, setSortOption] = useState<SortOption>('taxonomia');
+  const [viewMode, setViewMode] = useState<ViewMode>('list');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const basePath = import.meta.env.BASE_URL;
 
@@ -190,26 +192,47 @@ export default function HomePage() {
         <Filters
           onFilterChange={setFilters}
           onSortChange={setSortOption}
+          onViewModeChange={setViewMode}
           totalResults={filteredAves.length}
           totalSpecies={aves.length}
+          viewMode={viewMode}
         />
 
-        <div className="grid" id="birdGrid">
-          {filteredAves.length > 0 ? (
-            filteredAves.map(ave => (
-              <BirdCard
-                key={ave.id}
-                ave={ave}
-                onOpenModal={() => setSelectedAve(ave)}
-              />
-            ))
-          ) : (
-            <div className="no-results">
-              <p>😕 Nenhuma ave encontrada</p>
-              <p>Tente ajustar os filtros ou o termo de busca.</p>
-            </div>
-          )}
-        </div>
+        {viewMode === 'grid' ? (
+          <div className="grid" id="birdGrid">
+            {filteredAves.length > 0 ? (
+              filteredAves.map(ave => (
+                <BirdCard
+                  key={ave.id}
+                  ave={ave}
+                  onOpenModal={() => setSelectedAve(ave)}
+                />
+              ))
+            ) : (
+              <div className="no-results">
+                <p>😕 Nenhuma ave encontrada</p>
+                <p>Tente ajustar os filtros ou o termo de busca.</p>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="list-view" id="birdList">
+            {filteredAves.length > 0 ? (
+              filteredAves.map(ave => (
+                <BirdListItem
+                  key={ave.id}
+                  ave={ave}
+                  onOpenModal={() => setSelectedAve(ave)}
+                />
+              ))
+            ) : (
+              <div className="no-results">
+                <p>😕 Nenhuma ave encontrada</p>
+                <p>Tente ajustar os filtros ou o termo de busca.</p>
+              </div>
+            )}
+          </div>
+        )}
       </main>
 
       <Footer />
