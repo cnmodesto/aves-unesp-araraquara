@@ -2066,6 +2066,10 @@ footer p {
     touch-action: manipulation;
   }
 
+  .search-wrapper input {
+    font-size: 0.8rem;
+  }
+
   .card {
     width: 100%;
     height: auto;
