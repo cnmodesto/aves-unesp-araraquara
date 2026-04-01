@@ -37,6 +37,9 @@ export default function HomePage() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
       || window.matchMedia('(max-width: 768px)').matches;
 
+    // Define o viewMode baseado no dispositivo
+    setViewMode(isMobile ? 'list' : 'grid');
+
     if (!isMobile) {
       searchInputRef.current?.focus();
     }
@@ -45,24 +48,24 @@ export default function HomePage() {
   // Função de ordenação
   const sortAves = (avesToSort: Ave[], option: SortOption): Ave[] => {
     const sorted = [...avesToSort];
-    
+
     switch (option) {
       case 'taxonomia':
         return sorted.sort((a, b) => compararTaxonomia(a, b));
       case 'nome-az':
-        return sorted.sort((a, b) => 
+        return sorted.sort((a, b) =>
           a.nomeComumBrasileiro.localeCompare(b.nomeComumBrasileiro, 'pt-BR')
         );
       case 'nome-za':
-        return sorted.sort((a, b) => 
+        return sorted.sort((a, b) =>
           b.nomeComumBrasileiro.localeCompare(a.nomeComumBrasileiro, 'pt-BR')
         );
       case 'cientifico-az':
-        return sorted.sort((a, b) => 
+        return sorted.sort((a, b) =>
           a.nomeCientifico.localeCompare(b.nomeCientifico)
         );
       case 'cientifico-za':
-        return sorted.sort((a, b) => 
+        return sorted.sort((a, b) =>
           b.nomeCientifico.localeCompare(a.nomeCientifico)
         );
       case 'familia':
