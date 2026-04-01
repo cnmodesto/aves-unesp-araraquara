@@ -155,7 +155,7 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
           {/* Cabeçalho */}
           <div className="modal-header-info">
             <h1>{ave.nomeComumBrasileiro}</h1>
-            <h2>{ave.nomeCientifico} ({ave.descricao})</h2>
+            <h2><em>{ave.nomeCientifico}</em> ({ave.descricao})</h2>
           </div>
 
           {/* Layout em duas colunas */}
@@ -210,7 +210,7 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
                   </span>
                 </div>
                 <div className="info-row">
-                  <span className="info-label">{ave.endemicaBrasil === 'Sim' ? '🇧🇷' : '🌎'} Endêmica BR:</span>
+                  <span className="info-label">{ave.endemicaBrasil === 'Sim' ? '🇧🇷' : '🌎'} Endêmica do Brasil:</span>
                   <span className="info-value">{ave.endemicaBrasil}</span>
                 </div>
               </div>

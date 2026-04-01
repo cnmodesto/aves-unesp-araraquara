@@ -150,15 +150,15 @@ export default function BirdDetailPage() {
           <h3 className="detail-section-title">🔬 Taxonomia</h3>
           <div className="detail-info-grid">
             <div className="detail-info-item">
-              <span className="detail-label">📚 Ordem</span>
+              <span className="detail-label">📚 Ordem:</span>
               <span className="detail-value">{ave.ordem}</span>
             </div>
             <div className="detail-info-item">
-              <span className="detail-label">📖 Família</span>
+              <span className="detail-label">📖 Família:</span>
               <span className="detail-value">{ave.familia}</span>
             </div>
             <div className="detail-info-item">
-              <span className="detail-label">🌐 Nome em Inglês</span>
+              <span className="detail-label">🌐 Nome em Inglês:</span>
               <span className="detail-value">{ave.nomeComumIngles}</span>
             </div>
           </div>
@@ -169,29 +169,32 @@ export default function BirdDetailPage() {
           <h3 className="detail-section-title">🦅 Comportamento</h3>
           <div className="detail-info-grid">
             <div className="detail-info-item">
-              <span className="detail-label">{getPeriodoIcon(ave.periodoAtividade)} Período de Atividade</span>
+              <span className="detail-label">{getPeriodoIcon(ave.periodoAtividade)} Período de Atividade:</span>
               <span className="detail-value">{ave.periodoAtividade}</span>
             </div>
             <div className="detail-info-item">
-              <span className="detail-label">♂♀ Dimorfismo Sexual</span>
+              <span className="detail-label">♂♀ Dimorfismo Sexual:</span>
               <span className="detail-value">{ave.dimorfismo}</span>
             </div>
           </div>
         </div>
 
-        {/* Ecologia */}
+        {/* Habitats */}
         <div className="detail-section">
-          <h3 className="detail-section-title">🌿 Ecologia</h3>
+          <h3 className="detail-section-title">🏞️ Habitat</h3>
           <div className="detail-info-item">
-            <span className="detail-label">🏞️ Habitats</span>
             <ul className="detail-list">
               {ave.habitats.map((habitat: string, index: number) => (
                 <li key={index}>{habitat}</li>
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Dieta */}
+        <div className="detail-section">
+          <h3 className="detail-section-title">🍽️ Dieta</h3>
           <div className="detail-info-item">
-            <span className="detail-label">🍽️ Dieta</span>
             <ul className="detail-list">
               {ave.dieta.map((item: string, index: number) => (
                 <li key={index}>{item}</li>
@@ -205,13 +208,13 @@ export default function BirdDetailPage() {
           <h3 className="detail-section-title">🛡️ Conservação</h3>
           <div className="detail-info-grid">
             <div className="detail-info-item">
-              <span className="detail-label">📊 Estado de Conservação</span>
+              <span className="detail-label">📊 IUCN:</span>
               <span className={`detail-conservation-badge ${getConservationClass(ave.estadoConservacaoIucn)}`}>
                 {ave.estadoConservacaoIucn}
               </span>
             </div>
             <div className="detail-info-item">
-              <span className="detail-label">{ave.endemicaBrasil === 'Sim' ? '🇧🇷' : '🌎'} Endêmica do Brasil</span>
+              <span className="detail-label">{ave.endemicaBrasil === 'Sim' ? '🇧🇷' : '🌎'} Endêmica do Brasil:</span>
               <span className="detail-value">{ave.endemicaBrasil}</span>
             </div>
           </div>
