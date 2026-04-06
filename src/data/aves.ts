@@ -1187,6 +1187,10 @@ export const aves: Ave[] = [
     particula: "pica-pau-verde-barrado",
     foto: true,
     fotos: [{
+      src: "pica-pau-verde-barrado.jpg",
+      legenda: "Macho"
+    },
+    {
       src: "pica-pau-verde-barrado-femea.jpg",
       legenda: "Fêmea"
     }]
@@ -1217,6 +1221,10 @@ export const aves: Ave[] = [
     fotos: [{
       src: "pica-pau-do-campo.jpg",
       legenda: "Macho"
+    },
+    {
+      src: "pica-pau-do-campo-femea.jpg",
+      legenda: "Fêmea"
     }]
   },
   {
@@ -2848,7 +2856,7 @@ export const aves: Ave[] = [
     fotos: [{
       src: "chupim.jpg",
       legenda: "Macho"
-    },{
+    }, {
       src: "chupim-femea.jpg",
       legenda: "Fêmea"
     }]
@@ -3037,7 +3045,7 @@ export const aves: Ave[] = [
     fotos: [{
       src: "tiziu.jpg",
       legenda: "Macho"
-    },{
+    }, {
       src: "tiziu-femea.jpg",
       legenda: "Fêmea"
     }]
