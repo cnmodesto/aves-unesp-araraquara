@@ -674,12 +674,13 @@ main.shrink-main {
 }
 
 .sort-options {
-  display: flex;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 
 .sort-select {
-  min-width: 200px;
+  width: 100%;
 }
 
 /* Chips de filtros ativos */
@@ -1959,6 +1960,10 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .sort-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   /* Info grid */
   .info-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1974,6 +1979,7 @@ footer p {
     min-width: 150px;
     height: 120px;
   }
+
 }
 
 /* Tablets (max-width) */
@@ -2281,6 +2287,10 @@ footer p {
 
   .active-filters-chips {
     justify-content: center;
+  }
+
+  .sort-options {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   /* Modal sections em mobile */
