@@ -47,7 +47,7 @@ export default function InfoPage() {
           <p>
             Este guia virtual apresenta as espécies de aves registradas no câmpus da
             <strong> Universidade Estadual Paulista (Unesp)</strong> em Araraquara, abrangendo
-            suas diversas áreas e endereços: câmpus universitário, o Instituto de Química, o Centro de Ciências
+            suas diversas áreas e endereços: Câmpus, Instituto de Química, Centro de Ciências de Araraquara
             e a região dos prédios localizados na área central da cidade, como a Faculdade de Odontologia e a
             Faculdade de Ciências Farmacêuticas.
           </p>
@@ -124,10 +124,10 @@ export default function InfoPage() {
 
           <h3>Áreas Abrangidas</h3>
           <ul>
-            <li>Faculdade de Ciências Farmacêuticas (FCFar)</li>
+            <li>Câmpus</li>
             <li>Instituto de Química (IQ)</li>
-            <li>Centro de Ciências</li>
-            <li>Unidades na área central de Araraquara</li>
+            <li>Centro de Ciências de Araraquara (CCA)</li>
+            <li>Unidades na área central de Araraquara e seus arredores</li>
           </ul>
 
           <h3>Principais Referências</h3>
