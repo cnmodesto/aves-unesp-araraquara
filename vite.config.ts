@@ -20,5 +20,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  base: '/guia-aves-unesp-aqa-vite/',
+  base: '/aves-unesp-araraquara/',
 });
