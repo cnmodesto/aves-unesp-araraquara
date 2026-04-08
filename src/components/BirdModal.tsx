@@ -162,9 +162,9 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
           <div className="modal-two-columns">
             {/* Coluna Esquerda */}
             <div className="modal-column">
-              {/* Taxonomia */}
+              {/* Informações */}
               <div className="info-group">
-                <span className="info-group-title">🔬 Taxonomia</span>
+                <span className="info-group-title">🔬 Informações</span>
                 <div className="info-row">
                   <span className="info-label">📚 Ordem:</span>
                   <span className="info-value">{ave.ordem}</span>
@@ -177,11 +177,12 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
                   <span className="info-label">🌐 Inglês:</span>
                   <span className="info-value">{ave.nomeComumIngles}</span>
                 </div>
-              </div>
-
-              {/* Comportamento */}
-              <div className="info-group">
-                <span className="info-group-title">🦅 Comportamento</span>
+                <div className="info-row">
+                  <span className="info-label">♂♀ Dimorfismo:</span>
+                  <span className="info-value">
+                    {ave.dimorfismo === 'Sim' ? 'Acentuado' : 'Não acentuado'}
+                  </span>
+                </div>
                 <div className="info-row">
                   <span className="info-label">
                     {ave.periodoAtividade.includes('Noturno') && ave.periodoAtividade.includes('Diurno') 
@@ -191,12 +192,6 @@ export default function BirdModal({ ave, onClose }: BirdModalProps) {
                       : '☀️'} Atividade:
                   </span>
                   <span className="info-value">{ave.periodoAtividade}</span>
-                </div>
-                <div className="info-row">
-                  <span className="info-label">♂♀ Dimorfismo:</span>
-                  <span className="info-value">
-                    {ave.dimorfismo === 'Sim' ? 'Acentuado' : 'Não acentuado'}
-                  </span>
                 </div>
               </div>
 

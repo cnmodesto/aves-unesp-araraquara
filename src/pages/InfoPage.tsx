@@ -109,7 +109,7 @@ export default function InfoPage() {
           <h3>Números do Guia</h3>
           <div className="stats-grid">
             <div className="stat-item">
-              <span className="stat-number">116</span>
+              <span className="stat-number">117</span>
               <span className="stat-label">Espécies catalogadas</span>
             </div>
             <div className="stat-item">

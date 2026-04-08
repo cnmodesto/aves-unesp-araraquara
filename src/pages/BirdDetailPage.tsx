@@ -145,9 +145,9 @@ export default function BirdDetailPage() {
           <h2><em>{ave.nomeCientifico}</em> ({ave.descricao})</h2>
         </div>
 
-        {/* Taxonomia */}
+        {/* Informações */}
         <div className="detail-section">
-          <h3 className="detail-section-title">🔬 Taxonomia</h3>
+          <h3 className="detail-section-title">🔬 Informações</h3>
           <div className="detail-info-grid">
             <div className="detail-info-item">
               <span className="detail-label">📚 Ordem:</span>
@@ -161,20 +161,13 @@ export default function BirdDetailPage() {
               <span className="detail-label">🌐 Nome em Inglês:</span>
               <span className="detail-value">{ave.nomeComumIngles}</span>
             </div>
-          </div>
-        </div>
-
-        {/* Comportamento */}
-        <div className="detail-section">
-          <h3 className="detail-section-title">🦅 Comportamento</h3>
-          <div className="detail-info-grid">
-            <div className="detail-info-item">
-              <span className="detail-label">{getPeriodoIcon(ave.periodoAtividade)} Período de Atividade:</span>
-              <span className="detail-value">{ave.periodoAtividade}</span>
-            </div>
             <div className="detail-info-item">
               <span className="detail-label">♂♀ Dimorfismo Sexual:</span>
               <span className="detail-value">{ave.dimorfismo}</span>
+            </div>
+            <div className="detail-info-item">
+              <span className="detail-label">{getPeriodoIcon(ave.periodoAtividade)} Período de Atividade:</span>
+              <span className="detail-value">{ave.periodoAtividade}</span>
             </div>
           </div>
         </div>
