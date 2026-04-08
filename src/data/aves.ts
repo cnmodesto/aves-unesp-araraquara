@@ -3350,5 +3350,36 @@ export const aves: Ave[] = [
       src: "saira-amarela-femea.jpg",
       legenda: "Fêmea"
     }]
+  },
+  {
+    id: 117,
+    ordem: "Passeriformes",
+    familia: "Icteridae",
+    nomeCientifico: "Leistes superciliaris",
+    nomeComumBrasileiro: "polícia-inglesa-do-sul",
+    descricao: "Bonaparte, 1850",
+    nomeComumIngles: "White-browed Meadowlark",
+    periodoAtividade: "Diurno",
+    dimorfismo: "Sim",
+    estadoConservacaoIucn: "Pouco Preocupante",
+    endemicaBrasil: "Não",
+    habitats: [
+      "Áreas abertas",
+      "Campos e pastagens",
+      "Áreas rurais"
+    ],
+    dieta: [
+      "Artrópodes",
+      "Sementes"
+    ],
+    particula: "policia-inglesa-do-sul",
+    foto: true,
+    fotos: [{
+      src: "policia-inglesa-do-sul.jpg",
+      legenda: "Macho"
+    },{
+      src: "policia-inglesa-do-sul-femea.jpg",
+      legenda: "Fêmea"
+    }]
   }
 ];
